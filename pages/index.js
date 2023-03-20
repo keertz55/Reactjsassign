@@ -39,7 +39,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>ReactJs Assignment 2</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.header}>
