@@ -20,6 +20,7 @@ import Ellipse from './assets/icons/Ellipse-35.png'
 import cartBag from './assets/icons/card-bag.png'
 import Product1 from './assets/productImages/product1.png'
 import CartImage from './assets/icons/CartImage.png'
+import Plus from './assets/icons/plus.png'
 
 export default function Home() {
   var [productsArray, setproductsArray] = useState([])
@@ -27,9 +28,9 @@ export default function Home() {
     async function fetchProducts() {
       const response = await axios.get('/api/product');
       let res = response.data;
-      if(res && res.success){
+      if (res && res.success) {
         setproductsArray(res.data)
-      }else{
+      } else {
         alert("Something went wrong..")
       }
       console.log(productsArray)
@@ -61,15 +62,43 @@ export default function Home() {
         <p className={styles.menuText}>Jewelery</p>
       </div>
       <div className={styles.shoppingmenu}>
-        <Image className={styles.shoppinglogo} src={allBag} alt="allBag" width="128" height="128" />
-        <Image className={styles.shoppinglogo} src={pouch} alt="pouch" width="128" height="128" />
-        <Image className={styles.shoppinglogo} src={toteBag} alt="toteBag" width="128" height="128" />
-        <Image className={styles.shoppinglogo} src={duffelBag} alt="duffelBag" width="128" height="128" />
-        <Image className={styles.shoppinglogo} src={laptopBag} alt="laptopBag" width="128" height="128" />
-        <Image className={styles.shoppinglogo} src={messageBag} alt="messageBag" width="128" height="128" />
-        <Image className={styles.shoppinglogo} src={slingsBag} alt="slingsBag" width="128" height="128" />
-        <Image className={styles.shoppinglogo} src={handbag} alt="handbag" width="128" height="128" />
-        <Image className={styles.shoppinglogo} src={pouch} alt="pouch" width="128" height="128" />
+        <div className={styles.shoppingspace}>
+
+          <Image className={styles.shoppinglogo} src={allBag} alt="allBag" width="128" height="128" />
+          <p Classname={styles.shoppingname}>All Bags</p>
+        </div>
+        <div className={styles.shoppingspace}>
+          <Image className={styles.shoppinglogo} src={pouch} alt="pouch" width="128" height="128" />
+          <p Classname={styles.shoppingname}>Vanity Pouch</p>
+        </div>
+        <div className={styles.shoppingspace}>
+          <Image className={styles.shoppinglogo} src={toteBag} alt="toteBag" width="128" height="128" />
+          <p Classname={styles.shoppingname}>Tote Bag</p>
+        </div>
+        <div className={styles.shoppingspace}>
+          <Image className={styles.shoppinglogo} src={duffelBag} alt="duffelBag" width="128" height="128" />
+          <p Classname={styles.shoppingname}>Duffle Bag</p>
+        </div>
+        <div className={styles.shoppingspace}>
+          <Image className={styles.shoppinglogo} src={laptopBag} alt="laptopBag" width="128" height="128" />
+          <p Classname={styles.shoppingname}>Laptop Bag</p>
+        </div>
+        <div className={styles.shoppingspace}>
+          <Image className={styles.shoppinglogo} src={messageBag} alt="messageBag" width="128" height="128" />
+          <p Classname={styles.shoppingname}>Message Bag</p>
+        </div>
+        <div className={styles.shoppingspace}>
+          <Image className={styles.shoppinglogo} src={slingsBag} alt="slingsBag" width="128" height="128" />
+          <p Classname={styles.shoppingname}>Sling Bag</p>
+        </div>
+        <div className={styles.shoppingspace}>
+          <Image className={styles.shoppinglogo} src={handbag} alt="handbag" width="128" height="128" />
+          <p Classname={styles.shoppingname}>Hand Bag</p>
+        </div>
+        <div className={styles.shoppingspace}>
+          <Image className={styles.shoppinglogo} src={pouch} alt="pouch" width="128" height="128" />
+        <p Classname={styles.shoppingname}>Pouch</p>
+      </div>
       </div>
       <div className={styles.product}>
         <div className={styles.productMenu}>
@@ -95,9 +124,12 @@ export default function Home() {
                   <p className={styles.cardOrginalPrice}>{item.product_orginal_price}</p>
                   <p className={styles.carddiscount}>({item.product_discount}% Off)</p>
                 </div>
-                <div>
+                <div style={{position:'relative',marginRight:'10px'}}>
                   <Image className={styles.cartimage} src={cartBag} alt="cartBag" width="100%" height="80%" />
-                </div>
+                   <div className={styles.cardplusdiv}>
+                   <Image className={styles.cartplusimage} src={Plus} alt="Plus" width="100%" height="80%" />
+                   </div>
+                   </div>
               </div>
             </div>
           </div>
